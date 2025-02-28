@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  mini-sentiment:
+    image: pytorch/pytorch:2.0.0-cuda11.7-cudnn8-runtime
+    container_name: mini-sentiment-test
+    volumes:
+      - ./:/app
+      - ~/.cache:/root/.cache  # Para cachear los modelos de HuggingFace
+    working_dir: /app
+    command: >
+      bash -c "pip install -q pytorch-lightning transformers pandas hydra-core omegaconf &&
+               cd /app && python src/train.py"
+    environment:
+      - PYTHONPATH=/app
+      # Variables específicas para AMD (ROCm)
+      - HSA_OVERRIDE_GFX_VERSION=9.0.0
+      - ROCR_VISIBLE_DEVICES=0
