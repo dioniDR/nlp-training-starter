@@ -3,34 +3,6 @@ venv/
 env/
 .env/
 
-# Archivos de caché de Python
-__pycache__/
-*.py[cod]
-*$py.class
-.pytest_cache/
-.coverage
-htmlcov/
-
 # Directorios de salida y logs
 outputs/
 logs/
-lightning_logs/
-wandb/
-mlruns/
-
-# Archivos de Hydra
-.hydra/
-multirun/
-
-# Archivos de caché de HuggingFace
-.cache/
-
-# Archivos temporales del sistema
-.DS_Store
-Thumbs.db
-
-# Archivos de IDE
-.idea/
-.vscode/
-*.swp
-*.swo
